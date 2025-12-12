@@ -3,9 +3,9 @@ const artworkData = {
     'girl-pearl': {
         title: 'Girl with a Pearl Earring',
         artist: 'Johannes Vermeer (1665)',
-        description: 'Vermeer\'s masterful play of light becomes a study in character density. The luminous pearl, once painted with precious pigments, now glows through careful placement of bright characters against darker backgrounds.',
+        description: 'Painted around 1665 during the Dutch Golden Age, Vermeer\’s "Girl with a Pearl Earring" portrays an anonymous young woman turned toward the light, her exotic turban and luminous pearl reflecting the era\’s global trade, rising wealth, and taste for intimate, psychologically rich portraits.',
         imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/800px-1665_Girl_with_a_Pearl_Earring.jpg',
-        comparison: 'Vermeer\'s original showcases masterful light reflection on the pearl and the subject\'s luminous skin. The ASCII version uses the "O" character to represent the iconic pearl, with careful spacing to suggest the gentle turn of the head.'
+        comparison: 'In my converted ASCII version, Vermeer’s quiet, luminous portrait becomes a fully computerized image, rebuilt from pixels into characters on a screen. This transformation shows how powerful modern technology is—making it possible and far easier to reinterpret a 17th‑century masterpiece with code, algorithms, and simple text, while still honoring the emotion and drama of the original.'
     }
 };
 
@@ -46,7 +46,7 @@ function openModal(artworkId) {
     currentArtworkId = artworkId;
     const artwork = artworkData[artworkId];
     const asciiElement = document.getElementById(artworkId);
-    
+
     if (artwork && asciiElement) {
         // Copy colored HTML content
         modalAscii.innerHTML = asciiElement.innerHTML;
@@ -66,13 +66,13 @@ function closeModal() {
 // Download as PDF with submission info, original image, ASCII art side-by-side, and comparison
 async function downloadPdf() {
     if (!currentArtworkId) return;
-    
+
     const artwork = artworkData[currentArtworkId];
     const asciiElement = document.getElementById(currentArtworkId);
-    
+
     // Get the colored ASCII HTML content
     const asciiHtml = asciiElement ? asciiElement.innerHTML : '';
-    
+
     // Create PDF content element - fixed size to prevent page overflow
     const pdfContent = document.createElement('div');
     pdfContent.style.cssText = `
@@ -87,7 +87,7 @@ async function downloadPdf() {
         overflow: hidden;
         position: relative;
     `;
-    
+
     pdfContent.innerHTML = `
         <!-- Header with submission info -->
         <div style="text-align: center; margin-bottom: 6mm; border-bottom: 2px solid #d4af37; padding-bottom: 4mm;">
@@ -120,13 +120,13 @@ async function downloadPdf() {
         
         <!-- Description -->
         <div style="border-top: 1px solid #d4af37; padding-top: 3mm; margin-bottom: 3mm;">
-            <h3 style="color: #d4af37; font-size: 9px; margin: 0 0 1mm 0;">About This Artwork</h3>
+            <h3 style="color: #d4af37; font-size: 9px; margin: 0 0 1mm 0;">About The Original Artwork</h3>
             <p style="font-style: italic; color: #c0c0c0; font-size: 8px; line-height: 1.4; margin: 0;">${artwork.description}</p>
         </div>
         
         <!-- Comparison Section -->
         <div style="border-top: 1px solid #d4af37; padding-top: 3mm;">
-            <h3 style="color: #d4af37; font-size: 9px; margin: 0 0 1mm 0;">Comparison: Original vs ASCII</h3>
+            <h3 style="color: #d4af37; font-size: 9px; margin: 0 0 1mm 0;">Comparison: ASCII Art Conversion</h3>
             <p style="color: #c0c0c0; font-size: 8px; line-height: 1.4; margin: 0;">${artwork.comparison}</p>
         </div>
         
@@ -135,15 +135,15 @@ async function downloadPdf() {
             <p style="color: #888; font-size: 7px; margin: 0;">ASCII Art Gallery Project • Reading Visual Arts • ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
         </div>
     `;
-    
+
     document.body.appendChild(pdfContent);
-    
+
     const opt = {
         margin: 0,
         filename: `${currentArtworkId}-ascii-art.pdf`,
         image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { 
-            scale: 2, 
+        html2canvas: {
+            scale: 2,
             backgroundColor: '#0d0d1a',
             useCORS: true,
             allowTaint: true,
@@ -153,13 +153,13 @@ async function downloadPdf() {
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
         pagebreak: { mode: 'avoid-all' }
     };
-    
+
     try {
         await html2pdf().set(opt).from(pdfContent).save();
     } catch (error) {
         console.error('PDF generation failed:', error);
     }
-    
+
     document.body.removeChild(pdfContent);
 }
 
