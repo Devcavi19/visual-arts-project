@@ -130,6 +130,21 @@ async function downloadPdf() {
             <p style="color: #c0c0c0; font-size: 8px; line-height: 1.4; margin: 0;">${artwork.comparison}</p>
         </div>
         
+        <!-- Source Code -->
+        <div style="border-top: 1px solid #d4af37; padding-top: 3mm; margin-bottom: 3mm;">
+            <h3 style="color: #d4af37; font-size: 9px; margin: 0 0 1mm 0;">Source Code</h3>
+            <pre style="color: #c0c0c0; font-size: 6px; line-height: 1.2; margin: 0; white-space: pre-wrap;">// ASCII Art Data with descriptions and Wikimedia Commons image URLs (public domain)
+const artworkData = {
+    'girl-pearl': {
+        title: 'Girl with a Pearl Earring',
+        artist: 'Johannes Vermeer (1665)',
+        description: 'Painted around 1665 during the Dutch Golden Age, Vermeer\’s "Girl with a Pearl Earring" portrays an anonymous young woman turned toward the light, her exotic turban and luminous pearl reflecting the era\’s global trade, rising wealth, and taste for intimate, psychologically rich portraits.',
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/800px-1665_Girl_with_a_Pearl_Earring.jpg',
+        comparison: 'In my converted ASCII version, Vermeer’s quiet, luminous portrait becomes a fully computerized image, rebuilt from pixels into characters on a screen. This transformation shows how powerful modern technology is—making it possible and far easier to reinterpret a 17th‑century masterpiece with code, algorithms, and simple text, while still honoring the emotion and drama of the original.'
+    }
+};</pre>
+        </div>
+        
         <!-- Footer -->
         <div style="position: absolute; bottom: 8mm; left: 15mm; right: 15mm; text-align: center; border-top: 1px solid #a67c00; padding-top: 2mm;">
             <p style="color: #888; font-size: 7px; margin: 0;">ASCII Art Gallery Project • Reading Visual Arts • ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
