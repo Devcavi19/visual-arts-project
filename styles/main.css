@@ -245,6 +245,44 @@ body {
     transform: translateY(0);
 }
 
+/* Project Header */
+.project-header {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    background: radial-gradient(circle at center, #2a3a5c 0%, #1a1a2e 40%, #0d0d1a 100%);
+    border-bottom: 2px solid #d4af37;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    font-family: 'Fira Code', monospace;
+}
+
+.project-header h1 {
+    color: #d4af37;
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 500;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.project-header p {
+    color: #c0c0c0;
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+    line-height: 1.4;
+}
+
+/* Adjust Gallery for Header */
+.gallery {
+    height: calc(100vh - 120px);
+    align-items: flex-start;
+    padding-top: 2rem;
+}
+
+/* Reposition Artwork */
+.artwork {
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
     .gallery {
@@ -306,6 +344,23 @@ body {
         font-size: 0.2rem;
         line-height: 0.22rem;
     }
+
+    .project-header {
+        padding: 1rem;
+    }
+    
+    .project-header h1 {
+        font-size: 1.2rem;
+    }
+    
+    .project-header p {
+        font-size: 0.8rem;
+    }
+    
+    .gallery {
+        height: calc(100vh - 100px);
+        padding-top: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -322,6 +377,18 @@ body {
     .frame::before,
     .frame::after {
         display: none;
+    }
+
+    .project-header h1 {
+        font-size: 1rem;
+    }
+    
+    .project-header p {
+        font-size: 0.7rem;
+    }
+    
+    .gallery {
+        height: calc(100vh - 80px);
     }
 }
 
